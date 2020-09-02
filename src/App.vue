@@ -3,7 +3,6 @@
     <HeaderComponent/>
     <v-main>
       <WelcomePage/>
-      <BurgerComponent/>
     </v-main>
     <FooterComponent/>
   </v-app>
@@ -14,7 +13,6 @@
 import WelcomePage from './components/WelcomePage';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
-import BurgerComponent from './components/BurgerComponent';
 
 export default {
   name: 'App',
@@ -22,8 +20,7 @@ export default {
   components: {
     WelcomePage,
     HeaderComponent,
-    FooterComponent,
-    BurgerComponent
+    FooterComponent
   },
 
   data: () => ({
@@ -31,3 +28,14 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+@font-face {
+    font-family: "MontSerrat";
+    src: url('./font/Montserrat-Regular.ttf');
+}
+
+*{
+  font-family: "MontSerrat"
+}
+</style>

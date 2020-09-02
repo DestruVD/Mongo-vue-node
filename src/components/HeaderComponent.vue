@@ -1,6 +1,6 @@
 <template>
 <header>
-  <v-card class="overflow-hidden">
+  <v-card class="overflow-hidden fixed-top">
     <v-app-bar
       absolute
       color="white"
@@ -9,21 +9,9 @@
     >
       <BurgerComponent/>
 
-      <v-toolbar-title>Rent a Car</v-toolbar-title>
+      <v-toolbar-title><img src="../assets/Logo.png" alt=""></v-toolbar-title>
 
       <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-sheet
       id="scrolling-techniques-7"
@@ -50,5 +38,11 @@ export default {
 </script>
 
 <style scoped>
-
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
 </style>
