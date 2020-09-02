@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
+import 'bootstrap';
+import './assets/app.scss';
 
 Vue.config.productionTip = false
 
