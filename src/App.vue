@@ -4,7 +4,7 @@
     <v-main class="paddingBot">
       <WelcomePage />
       <StepComponent/>
-      <FooterComponent />
+    <FooterComponent />
     </v-main>
   </v-app>
 </template>
