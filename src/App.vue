@@ -1,10 +1,11 @@
 <template>
   <v-app>
-    <HeaderComponent/>
-    <v-main>
-      <WelcomePage/>
+    <HeaderComponent />
+    <v-main class="paddingBot">
+      <WelcomePage />
+      <StepComponent/>
+      <FooterComponent />
     </v-main>
-    <FooterComponent/>
   </v-app>
 </template>
 
@@ -13,6 +14,8 @@
 import WelcomePage from './components/WelcomePage';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
+import StepComponent from './components/StepComponent';
+
 
 export default {
   name: 'App',
@@ -20,7 +23,8 @@ export default {
   components: {
     WelcomePage,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StepComponent
   },
 
   data: () => ({
@@ -37,5 +41,8 @@ export default {
 
 *{
   font-family: "MontSerrat"
+}
+.paddingBot{
+  padding-bottom: 54px !important;
 }
 </style>
