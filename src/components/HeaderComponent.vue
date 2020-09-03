@@ -9,7 +9,7 @@
     >
       <BurgerComponent/>
 
-      <v-toolbar-title><img src="../assets/Logo.png" alt=""></v-toolbar-title>
+      <v-toolbar-title><img src="../assets/logo.png" alt=""></v-toolbar-title>
 
       <v-spacer></v-spacer>
     </v-app-bar>
