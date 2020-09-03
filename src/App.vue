@@ -10,21 +10,19 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld';
-import WelcomePage from './components/WelcomePage';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import StepComponent from './components/StepComponent';
-
+import WelcomePage from './components/WelcomePage';
 
 export default {
   name: 'App',
 
   components: {
-    WelcomePage,
     HeaderComponent,
     FooterComponent,
-    StepComponent
+    StepComponent,
+    WelcomePage
   },
 
   data: () => ({
