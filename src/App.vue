@@ -4,6 +4,7 @@
     <v-main class="paddingBot">
       <WelcomePage />
       <StepComponent/>
+      <ContactUsComponent />
     <FooterComponent />
     </v-main>
   </v-app>
@@ -14,6 +15,7 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import StepComponent from './components/StepComponent';
 import WelcomePage from './components/WelcomePage';
+import ContactUsComponent from './components/ContactUsComponent';
 
 export default {
   name: 'App',
@@ -22,7 +24,8 @@ export default {
     HeaderComponent,
     FooterComponent,
     StepComponent,
-    WelcomePage
+    WelcomePage,
+    ContactUsComponent
   },
 
   data: () => ({
