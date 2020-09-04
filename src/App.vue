@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
     <HeaderComponent />
     <v-main class="paddingBot">
       <WelcomePage />

@@ -3,21 +3,20 @@
     class="mx-auto"
     max-width="344"
   >
-    <v-card-text>
-      <div>Word of the Day</div>
-      <img class="mw " src="../assets/step1.png" alt="">
-      <p>adjective</p>
+    <v-card-text style="text-align: center;">
+      <img class="mw" :src="urlImg" alt="">
+      <p></p>
       <div class="text--primary">
-        well meaning and kindly.<br>
-        "a benevolent smile"
+        <h5>{{actionText}}</h5>
+        {{textDesc}}
       </div>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions style="justify-content: center;">
       <v-btn
         text
         color="deep-purple accent-4"
       >
-        Register
+        {{activableButton}}
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -25,7 +24,8 @@
 
 <script>
 export default{
-    name: 'Card'
+    name: 'Card',
+    props: ['urlImg','actionText','textDesc','activableButton']
 }
 </script>
 
