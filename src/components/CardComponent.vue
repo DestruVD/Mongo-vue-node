@@ -1,8 +1,8 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto shadow"
     max-width="344"
-    style="max-height: 384.938px; min-height: 384.938px"
+    style="max-height: 384.938px; min-height: 384.938px;"
   >
     <v-card-text style="text-align: center;">
       <img class="mw" :src="urlImg" alt="">

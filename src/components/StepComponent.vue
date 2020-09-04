@@ -1,5 +1,5 @@
 <template>
-    <v-row class="bg-perso min-width marginBot50">
+    <v-row class="bg-perso min-width marginBot">
         <v-col class="col-12">
             <h3 style="text-align: center;">It's very simple !</h3>
         </v-col>
@@ -38,7 +38,8 @@ import CardComponent from '../components/CardComponent';
     .min-width{
         min-width: 100vw;
     }
-    .marginBot50{
-        margin-bottom: 55px !important;
+    .marginBot{
+        margin-bottom: 0px !important;
+        padding-bottom: 25px;
     }
 </style>
