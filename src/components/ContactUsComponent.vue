@@ -1,18 +1,20 @@
 <template>
-    <v-container class="parallax ">
+    <v-container>
         <v-row class="textCenter">
-            <v-col class="marginTop">
-                <h5 class="colorWhite">CONTACT US TO GIVE A FEEDBACK OF OUR APPLICATION OR SHARE YOUR EXPERIENCE WITH US!</h5>
+            <v-col>
+                <h5 class="colorDark">CONTACT US TO GIVE A FEEDBACK OF OUR APPLICATION OR SHARE YOUR EXPERIENCE WITH US!</h5>
             </v-col>
         </v-row>
         <v-row class="textCenter">
             <v-col>
-                <h6 class="colorWhite">Complete the contact us form !</h6>
+                <h6 class="colorDark">Complete the contact us form !</h6>
             </v-col>
         </v-row>
         <v-row class="textCenter">
             <v-col>
-                <button class="btn btn-success">Contact us</button>
+                <router-link to="/ContactUs">
+                    <button class="btn btn-success">Contact us</button>
+                </router-link>
             </v-col>
         </v-row>
     </v-container>
@@ -26,29 +28,17 @@ export default {
 </script>
 
 <style scoped>
-.parallax {
-  background-image: url("../assets/contact-us-background.jpg");
 
-  height: 40%;
-  min-width: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .colorWhite{
     color: white;
-}
-.marginTop{
-    margin-top: 150px;
 }
 .textCenter{
     text-align: center;
 }
 @media screen and (max-width: 1200px) {
     .parallax{
-        background-image: url("../assets/contact-us-background.jpg");
+        background-image: url("../assets/backgroundContactUs.jpg");
         height: 30%;
         min-width: 100%;
         background-attachment: fixed;

@@ -1,31 +1,23 @@
 <template>
   <v-app>
     <HeaderComponent />
-    <v-main class="paddingBot">
-      <WelcomePage />
-      <StepComponent/>
-      <ContactUsComponent />
-    <FooterComponent />
+    <v-main id="main" class="paddingBot">
+      <router-view />
     </v-main>
+    <FooterComponent />
   </v-app>
 </template>
 
 <script>
-import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
-import StepComponent from './components/StepComponent';
-import WelcomePage from './components/WelcomePage';
-import ContactUsComponent from './components/ContactUsComponent';
+import HeaderComponent from './components/HeaderComponent';
 
 export default {
   name: 'App',
 
   components: {
     HeaderComponent,
-    FooterComponent,
-    StepComponent,
-    WelcomePage,
-    ContactUsComponent
+    FooterComponent
   },
 
   data: () => ({
@@ -35,15 +27,8 @@ export default {
 </script>
 
 <style scoped>
-@font-face {
-    font-family: "MontSerrat";
-    src: url('./font/Montserrat-Regular.ttf');
-}
-
-*{
-  font-family: "MontSerrat"
-}
-.paddingBot{
-  padding-bottom: 54px !important;
-}
+  .paddingBot{
+    padding-bottom: 53px !important;
+  }
 </style>
+

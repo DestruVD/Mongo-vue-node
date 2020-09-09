@@ -1,0 +1,9 @@
+<template>
+    <v-container>
+        <v-row>
+            <v-col>
+                <p>Agenda</p>
+            </v-col>
+        </v-row>
+    </v-container>
+</template>

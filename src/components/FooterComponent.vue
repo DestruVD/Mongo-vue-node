@@ -28,6 +28,8 @@ export default {
         min-width: 100%;
         padding: 0px;
         bottom: 0 !important;
+        left: 0 !important; 
+        right: 0 !important;
         position: absolute !important;
     }
 </style>
