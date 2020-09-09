@@ -21,25 +21,25 @@
     ></v-text-field>
 
     <v-text-field
-      :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+      :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
       :rules="[rules.required, rules.min]"
-      :type="show2 ? 'text' : 'password'"
+      :type="showPassword ? 'text' : 'password'"
       v-model="password"
       name="Password"
       label="Password"
       hint="At least 8 characters"
-      @click:append="show2 = !show2"
+      @click:append="showPassword = !showPassword"
     ></v-text-field>
 
     <v-text-field
       :rules="[rules.required, rules.min]"
-      :type="show2 ? 'text' : 'password'"
+      :type="showPassword ? 'text' : 'password'"
       v-model="confirmPassword"
       name="Confirm password"
       label="Confirm password"
       hint="At least 8 characters"
       value=""
-      @click:append="show2 = !show2"
+      @click:append="showPassword = !showPassword"
     ></v-text-field>
 
     <v-text-field
@@ -101,10 +101,7 @@
         'Male',
         'Female'
       ],
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
+      showPassword: false,
       password: '',
       confirmPassword: '',
       rules: {

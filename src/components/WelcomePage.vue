@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import StepComponent from '../components/StepComponent';
+import StepComponent from '../components/StepComponent/StepComponent';
 import ContactUsComponent from '../components/ContactUsComponent';
 
 export default{
