@@ -8,8 +8,10 @@
       scroll-target="#scrolling-techniques-7"
     >
       <BurgerComponent/>
-
-      <v-toolbar-title><img src="../assets/logo.png" alt=""></v-toolbar-title>
+      <router-link to="/">
+        <v-toolbar-title><img src="../assets/logo.png" alt=""></v-toolbar-title>
+      </router-link>
+      
 
       <v-spacer></v-spacer>
     </v-app-bar>
