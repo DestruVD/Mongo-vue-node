@@ -11,6 +11,8 @@
         <h5>{{actionText}}</h5>
         {{textDesc}}
       </div>
+
+      
     </v-card-text>
     <v-card-actions style="justify-content: center;">
       <v-btn
