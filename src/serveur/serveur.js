@@ -13,16 +13,20 @@ app.use(function(req, res ,next){
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     next();
 })
-
+//Config serveur
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 
+
+//Database connection
 mongoose.connect('mongodb+srv://DestruVD:dydy6040dydy@rentacar.ajm9k.gcp.mongodb.net/rentacar?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
+
+//Schema collections
 var personSchema = mongoose.Schema({
     name: String,
     pseudo: String,
@@ -32,9 +36,9 @@ var personSchema = mongoose.Schema({
 })
 
 var Person = mongoose.model('person',personSchema)
-
 var router = express.Router();
 
+//Route creation
 router.route('/')
     .get(function(req, res){
         Person.find(function(err, people){
