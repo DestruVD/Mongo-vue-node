@@ -17,7 +17,6 @@
                         <router-link to="/Register">
                             <button class="btn btn-primary">Register</button>
                         </router-link>
-                        <button @click="testFunction">Test</button>
                     </div>
                 </v-col>
             </v-row>
@@ -40,17 +39,6 @@ export default{
     components: {
         StepComponent,
         ContactUsComponent
-    },
-    methods: {
-        testFunction(){
-            this.axios.get("http://localhost:8080")
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-        }
     }
 }
 </script>

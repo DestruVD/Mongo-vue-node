@@ -21,6 +21,14 @@
     ></v-text-field>
 
     <v-text-field
+      v-model="pseudo"
+      :counter="20"
+      :rules="pseudoRules"
+      label="Pseudo"
+      required
+    ></v-text-field>
+
+    <v-text-field
       :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
       :rules="[rules.required, rules.min]"
       :type="showPassword ? 'text' : 'password'"
@@ -49,14 +57,6 @@
       required
     ></v-text-field>
 
-    <v-select
-      v-model="select"
-      :items="items"
-      :rules="[v => !!v || 'Item is required']"
-      label="Gender"
-      required
-    ></v-select>
-
     <router-link to="/">
       <v-btn
       color="primary"
@@ -70,7 +70,7 @@
       :disabled="ValidatePassword"
       color="success"
       class="mr-4"
-      @click="validate"
+      @click="validate(); RegisterPostRequest();"
     >
       Validate
     </v-btn>
@@ -84,22 +84,22 @@
       name: '',
       nameRules: [
         v => !!v || 'Name is required',
-        v => (v && v.length <= 20) || 'Name must be less than 10 characters',
+        v => (v && v.length <= 20) || 'Name must be less than 20 characters',
       ],
       email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
+      pseudo: '',
+      pseudoRules: [
+        v => !!v || 'Pseudo is required',
+        v => (v && v.length <= 20) || 'Pseudo must be less than 20 characters',
+      ],
       surname: '',
       surnameRules: [
         v => !!v || 'Surname is required',
-        v => (v && v.length <= 20) || 'Surname must be less than 10 characters',
-      ],
-      select: null,
-      items: [
-        'Male',
-        'Female'
+        v => (v && v.length <= 20) || 'Surname must be less than 20 characters',
       ],
       showPassword: false,
       password: '',
@@ -113,6 +113,22 @@
     methods: {
       validate () {
         this.$refs.form.validate()
+      },
+      RegisterPostRequest(){
+        console.log(this.password)
+        this.axios.post("http://localhost:3000/api",{
+              name: this.name,
+              pseudo: this.pseudo,
+              email: this.email,
+              surname: this.surname,
+              password: this.password
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
       }
     },
     computed: {
