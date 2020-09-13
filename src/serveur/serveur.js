@@ -1,11 +1,11 @@
-//Imports
-var express = require('express');
+const ck = require('ckey')
+const express = require('express');
 const User = require('../backend/models/UserModel.js')
-const UserLogin = require('../backend/models/UserLoginModel.js')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
 const mongoose = require('mongoose');
 const app = express();
+const jwt = require('jsonwebtoken')
 
 //Cors Desactivation
 app.use(function(req, res ,next){
@@ -65,7 +65,15 @@ router.route('/users/:pseudo')
                 res.send("User doesn't exist !")
             }else{
                 if(req.body.password == user.password){
-                    res.send("User succesfully connected !")
+                    const accessToken = jwt.sign(
+                    {
+                        email: user.email,
+                        name: user.name,
+                        surname: user.surname,
+                        password: user.password,
+                        pseudo: user.pseudo
+                    }, ck.ACCESS_TOKEN_SECRET)
+                    res.json({ accessToken: accessToken })
                 }else{
                     res.send("Password wrong !")
                 }

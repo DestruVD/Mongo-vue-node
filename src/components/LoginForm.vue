@@ -38,7 +38,7 @@
         :disabled="buttonEnabled"
         color="success"
         class="mr-4"
-        @click="validate();"
+        @click="validate(); LoginRequest();"
       >
         Login
       </v-btn>
@@ -67,22 +67,19 @@
       validate () {
         this.$refs.form.validate()
       },
-    //   RegisterPostRequest(){
-    //     console.log(this.password)
-    //     this.axios.post("http://localhost:3000/api/users",{
-    //           name: this.name,
-    //           pseudo: this.pseudo,
-    //           email: this.email,
-    //           surname: this.surname,
-    //           password: this.password
-    //     })
-    //         .then(function (response) {
-    //             console.log(response);
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    //   }
+      LoginRequest(){
+        console.log(this.password)
+        this.axios.post("http://localhost:3000/api/users/pseudo",{
+              pseudo: this.pseudo,
+              password: this.password
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      }
     },
     computed: {
       buttonEnabled(){
