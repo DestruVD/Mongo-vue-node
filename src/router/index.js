@@ -5,6 +5,7 @@ import WelcomePage from '../components/WelcomePage';
 import Register from '../views/Register.vue'
 import Agenda from '../views/Agenda.vue'
 import ContactUs from '../views/ContactUs.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,11 @@ Vue.use(VueRouter)
     path: '/ContactUs',
     name: 'ContactUs',
     component: ContactUs
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
   }
 ]
 

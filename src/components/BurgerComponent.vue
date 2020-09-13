@@ -15,7 +15,7 @@
           v-for="(item, index) in items"
           :key="index"
         >
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <router-link style="text-decoration: none;" :to=item.title><v-list-item-title style="color: black;">{{ item.title }}</v-list-item-title></router-link>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -27,7 +27,6 @@ export default {
     name: 'Burger',
     data: () => ({
       items: [
-        { title: 'Home' },
         { title: 'Agenda' },
         { title: 'Register' },
         { title: 'Login' },
