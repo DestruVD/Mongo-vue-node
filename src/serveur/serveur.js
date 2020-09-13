@@ -1,6 +1,7 @@
 //Imports
 var express = require('express');
 const User = require('../backend/models/UserModel.js')
+const UserLogin = require('../backend/models/UserLoginModel.js')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
 const mongoose = require('mongoose');
@@ -53,6 +54,23 @@ router.route('/users')
             }
             res.send("User added !")
         });
+    })
+
+router.route('/users/:pseudo')
+    .post(function(req,res){
+        User.findOne({ pseudo: {$regex : new RegExp(req.body.pseudo, "i")} }, function(err,user){
+            if(err){
+                res.send(err)
+            }else if(user==null){
+                res.send("User doesn't exist !")
+            }else{
+                if(req.body.password == user.password){
+                    res.send("User succesfully connected !")
+                }else{
+                    res.send("Password wrong !")
+                }
+            }
+        })
     })
 
     app.use('/api',router)
