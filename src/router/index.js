@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import WelcomePage from '../components/WelcomePage';
 import Register from '../views/Register.vue'
 import Agenda from '../views/Agenda.vue'
@@ -12,8 +11,8 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'WelcomePage',
-    component: WelcomePage
+      name: 'WelcomePage',
+      component: WelcomePage
   },
   {
     path: '/Register',

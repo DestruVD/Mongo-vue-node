@@ -42,6 +42,7 @@ router.route('/users')
         });
     })
     .post(function(req,res){
+        console.log('test')
         var user = new User();
         user.name = req.body.name
         user.pseudo = req.body.pseudo
@@ -55,7 +56,6 @@ router.route('/users')
             res.send("User added !")
         });
     })
-
 router.route('/users/:pseudo')
     .post(function(req,res){
         User.findOne({ pseudo: {$regex : new RegExp(req.body.pseudo, "i")} }, function(err,user){
@@ -67,6 +67,7 @@ router.route('/users/:pseudo')
                 if(req.body.password == user.password){
                     const accessToken = jwt.sign(
                     {
+                            id: user._id,
                         email: user.email,
                         name: user.name,
                         surname: user.surname,
@@ -80,6 +81,22 @@ router.route('/users/:pseudo')
             }
         })
     })
+
+router.route('/users/:authUser')
+    .get(authenticateToken, function (req, res) {
+        var userID = req.body.jwtToken
+        res.send(userID)
+    })
+
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization']
+    const token = authHeader.replace('Bearer ', '')
+    if (token == null) {
+        return res.sendStatus(401)
+    }
+    const jwtToken = jwt.verify(token, ck.ACCESS_TOKEN_SECRET)
+    res.send(jwtToken.id)
+}
 
     app.use('/api',router)
     app.listen(port, function(){

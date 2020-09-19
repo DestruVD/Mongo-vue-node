@@ -118,7 +118,6 @@
         if(this.validate()==false){
           console.log("error")
         }else{
-
           this.axios.post("http://localhost:3000/api/users",{
                 name: this.name,
                 pseudo: this.pseudo,

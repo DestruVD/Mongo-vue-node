@@ -2,16 +2,20 @@
   "name": "rentacar",
   "version": "0.1.0",
   "private": true,
+  "description": "```\r npm install\r ```",
+  "author": "Dylan Van Vlaender",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "main": "serveur.js",
   "dependencies": {
     "axios": "^0.20.0",
     "ckey": "^1.0.2",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
+    "es6-promise": "^4.2.8",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.2",
@@ -19,19 +23,26 @@
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.2.0",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.2.11",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.4",
+    "@vue/cli-plugin-vuex": "^4.5.6",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.5.2",
-    "eslint": "^6.7.2",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+    "prettier": "2.1.2",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-vuetify": "~2.0.7",
@@ -57,22 +68,19 @@
     "last 2 versions",
     "not dead"
   ],
-  "description": "```\r npm install\r ```",
-  "main": "serveur.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DestruVD/Mongo-vue-node.git"
+  "bugs": {
+    "url": "https://github.com/DestruVD/Mongo-vue-node/issues"
   },
+  "homepage": "https://github.com/DestruVD/Mongo-vue-node#readme",
   "keywords": [
     "serveur",
     "http",
     "api",
     "rest"
   ],
-  "author": "Dylan Van Vlaender",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DestruVD/Mongo-vue-node/issues"
-  },
-  "homepage": "https://github.com/DestruVD/Mongo-vue-node#readme"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DestruVD/Mongo-vue-node.git"
+  }
 }

@@ -33,15 +33,16 @@
           Back
         </v-btn>
       </router-link>
-
-      <v-btn
-        :disabled="buttonEnabled"
-        color="success"
-        class="mr-4"
-        @click="validate(); LoginRequest();"
-      >
-        Login
-      </v-btn>
+      <router-link to="/">
+        <v-btn
+          :disabled="buttonEnabled"
+          color="success"
+          class="mr-4"
+          @click="validate(); LoginRequest(); session()"
+        >
+          Login
+        </v-btn>
+      </router-link>
     </v-form>
   </v-card>
 </template>
@@ -67,18 +68,36 @@
       validate () {
         this.$refs.form.validate()
       },
+      getUser(information){
+        const Header = `Bearer ${information.data.accessToken}`
+        this.axios.get("http://localhost:3000/api/users/me",{
+              headers:{
+                "authorization" : Header
+              }
+            })
+            .then(function(response){
+              console.log(response)
+            })
+            .catch(function(response){
+              console.log(response)
+            })
+      },
       LoginRequest(){
-        console.log(this.password)
+        const myThis = this
         this.axios.post("http://localhost:3000/api/users/pseudo",{
               pseudo: this.pseudo,
               password: this.password
         })
         .then(function (response) {
-            console.log(response);
+          localStorage.setItem('jwtToken',response.data.accessToken)
+          myThis.getUser(response)
         })
         .catch(function (error) {
             console.log(error);
         });
+      },
+      session(){
+        this.$store.commit('connect')
       }
     },
     computed: {
