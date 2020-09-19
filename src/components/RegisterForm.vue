@@ -72,7 +72,7 @@
       class="mr-4"
       @click="validate(); RegisterPostRequest();"
     >
-      Validate
+      Register
     </v-btn>
   </v-form>
 </template>
@@ -106,29 +106,32 @@
       confirmPassword: '',
       rules: {
         required: value => !!value || 'Required.',
-        min: v => v.length >= 8 || 'Min 8 characters',
+        min: v => v.length >= 3 || 'Min 3 characters',
       }
     }),
 
     methods: {
       validate () {
-        this.$refs.form.validate()
+        return this.$refs.form.validate()
       },
       RegisterPostRequest(){
-        console.log(this.password)
-        this.axios.post("http://localhost:3000/api",{
-              name: this.name,
-              pseudo: this.pseudo,
-              email: this.email,
-              surname: this.surname,
-              password: this.password
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        if(this.validate()==false){
+          console.log("error")
+        }else{
+          this.axios.post("http://localhost:3000/api/users",{
+                name: this.name,
+                pseudo: this.pseudo,
+                email: this.email,
+                surname: this.surname,
+                password: this.password
+          })
+          .then(function (response) {
+              console.log(response);
+          })
+          .catch(function (error) {
+              console.log(error);
+          });
+        }
       }
     },
     computed: {

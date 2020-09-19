@@ -15,7 +15,10 @@
                 <v-col class="d-flex justify-content-center">
                     <div class="my-2">
                         <router-link to="/Register">
-                            <button class="btn btn-primary">Register</button>
+                            <button v-if="sessionDisconnected" class="btn btn-primary">Register</button>
+                        </router-link>
+                        <router-link to="/Agenda">
+                            <button v-if="sessionConnected" class="btn btn-primary">Agenda</button>
                         </router-link>
                     </div>
                 </v-col>
@@ -38,7 +41,20 @@ export default{
     name: 'WelcomePage',
     components: {
         StepComponent,
-        ContactUsComponent
+        ContactUsComponent,
+    },
+    data: ()=>({
+    }),
+    methods: {
+        
+    },
+    computed: {
+        sessionDisconnected(){
+            return this.$store.state.sessionDisconnected
+        },
+        sessionConnected(){
+            return this.$store.state.sessionConnected
+        }
     }
 }
 </script>
