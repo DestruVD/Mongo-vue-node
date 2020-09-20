@@ -74,7 +74,7 @@ router.route('/users/:pseudo')
                         password: user.password,
                         pseudo: user.pseudo
                     }, ck.ACCESS_TOKEN_SECRET)
-                    res.json({ accessToken: accessToken })
+                    res.json({ accessToken })
                 }else{
                     res.send("Password wrong !")
                 }

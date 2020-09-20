@@ -8,7 +8,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Vuex from 'vuex'
 import store from './store'
-
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false

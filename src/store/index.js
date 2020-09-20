@@ -1,43 +1,47 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     //exemple
-    sessionDisconnected: true,
-    sessionConnected: false,
-    logoutBool: false,
-    items: [
-      { title: 'Agenda' },
-      { title: 'Register' },
-      { title: 'Login' },
-    ]
+    token: (localStorage.getItem('jwt') === undefined ? undefined : localStorage.getItem('jwt'))
+  },
+  getters: {
+    loggedIn(state) {
+      return state.token != undefined ? true : false
+    }
   },
   mutations: {
     disconnect(state) {
-      state.sessionConnected = false
-      state.sessionDisconnected = true
-      state.logoutBool = false
-      state.items = [
-        { title: 'Agenda' },
-        { title: 'Register' },
-        { title: 'Login' },
-      ]
       localStorage.clear();
+      state.token = undefined
     },
-    connect(state) {
-      state.sessionConnected = true
-      state.sessionDisconnected = false
-      state.logoutBool = true
-      state.items = [
-        { title: 'Agenda' },
-        { title: 'Profil' },
-      ]
+    retrieveToken(state, token) {
+      state.token = token;
     }
   },
   actions: {
+    LoginRequest(context, credentials) {
+      axios.post("http://localhost:3000/api/users/pseudo", {
+        pseudo: credentials.pseudo,
+        password: credentials.password
+      })
+        .then(function (response) {
+          const token = response.data.accessToken
+          localStorage.setItem('jwt', token)
+          context.commit('retrieveToken', token)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    Disconnect(context) {
+      console.log('test2')
+      context.commit('disconnect')
+    }
   },
   modules: {
   }
