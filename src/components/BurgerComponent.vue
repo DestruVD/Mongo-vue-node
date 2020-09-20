@@ -10,14 +10,22 @@
           </template>
         </v-tooltip>
       </template>
-      <v-list>
+      <v-list v-if="!session">
         <v-list-item class="paddingLeftright z-index"
-        v-for="(item, index) in changeTab"
+        v-for="(item, index) in items"
         :key="index"
         >
           <router-link style="text-decoration: none;" :to=item.title><v-list-item-title style="color: black;">{{ item.title }}</v-list-item-title></router-link>
         </v-list-item>
-        <router-link style="text-decoration: none;" to="/"><v-list-item-title style="color: black;" @click="disconnect" v-if="logoutBool">Logout</v-list-item-title></router-link>
+      </v-list>
+      
+      <v-list v-if="session">
+        <v-list-item class="paddingLeftright z-index"
+        v-for="(item, index) in itemsConnected"
+        :key="index"
+        >
+          <router-link style="text-decoration: none;" :to=item.place><v-list-item-title @click="item.disconnect ? disconnect() : false ;" style="color: black;">{{ item.title }}</v-list-item-title></router-link>
+        </v-list-item>
       </v-list>
     </v-menu>
   </div>
@@ -27,19 +35,26 @@
 export default {
     name: 'Burger',
     data: () => ({
-
+      items: [
+        { title: 'Agenda' },
+        { title: 'Register' },
+        { title: 'Login' },
+      ],
+      itemsConnected: [
+        { title: 'Agenda' , place: 'Agenda', disconnect: false},
+        { title: 'Profil' , place: 'Profil', disconnect: false},
+        { title: 'Logout' , place: '/', disconnect: true},
+      ],
     }),
     methods:{
       disconnect(){
-        this.$store.commit('disconnect')
+        console.log('test1')
+        this.$store.dispatch('Disconnect')
       }
     },
     computed: {
-      changeTab(){
-        return this.$store.state.items
-      },
-      logoutBool(){
-        return this.$store.state.logoutBool
+      session(){
+        return this.$store.getters.loggedIn
       }
     }
 }

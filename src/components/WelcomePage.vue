@@ -14,11 +14,11 @@
             <v-row class="d-flex justify-content-center">
                 <v-col class="d-flex justify-content-center">
                     <div class="my-2">
-                        <router-link to="/Register">
-                            <button v-if="sessionDisconnected" class="btn btn-primary">Register</button>
+                        <router-link class="text-decoNone" to="/Register">
+                            <button  v-if="!session" class="btn btn-primary">Register</button>
                         </router-link>
-                        <router-link to="/Agenda">
-                            <button v-if="sessionConnected" class="btn btn-primary">Agenda</button>
+                        <router-link class="text-decoNone" to="/Agenda">
+                            <button v-if="session" class="btn btn-primary">Agenda</button>
                         </router-link>
                     </div>
                 </v-col>
@@ -49,17 +49,17 @@ export default{
         
     },
     computed: {
-        sessionDisconnected(){
-            return this.$store.state.sessionDisconnected
-        },
-        sessionConnected(){
-            return this.$store.state.sessionConnected
-        }
+        session(){
+        return this.$store.getters.loggedIn
+      }
     }
 }
 </script>
 
 <style scoped>
+.text-decoNone{
+    text-decoration: none !important;
+}
 .containerStep{
     margin: 0px !important; 
     min-width: 100% !important; 
