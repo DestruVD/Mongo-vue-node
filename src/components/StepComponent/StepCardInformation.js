@@ -1,5 +1,5 @@
 
- export default [
+export default [
     {
         index: 1,
         img: require("../../assets/step1.png"), 

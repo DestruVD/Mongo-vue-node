@@ -5,7 +5,7 @@
     lazy-validation
   >
     <v-text-field
-      v-model="name"
+      v-model="user.name"
       :counter="20"
       :rules="nameRules"
       label="Name"
@@ -13,7 +13,7 @@
     ></v-text-field>
 
     <v-text-field
-      v-model="surname"
+      v-model="user.surname"
       :counter="20"
       :rules="surnameRules"
       label="Surname"
@@ -21,7 +21,7 @@
     ></v-text-field>
 
     <v-text-field
-      v-model="pseudo"
+      v-model="user.pseudo"
       :counter="20"
       :rules="pseudoRules"
       label="Pseudo"
@@ -32,7 +32,7 @@
       :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
       :rules="[rules.required, rules.min]"
       :type="showPassword ? 'text' : 'password'"
-      v-model="password"
+      v-model="user.password"
       name="Password"
       label="Password"
       hint="At least 8 characters"
@@ -51,7 +51,7 @@
     ></v-text-field>
 
     <v-text-field
-      v-model="email"
+      v-model="user.email"
       :rules="emailRules"
       label="E-mail"
       required
@@ -80,29 +80,32 @@
 <script>
   export default {
     data: () => ({
+
+      user: {
+        name: '',
+        email: '',
+        pseudo: '',
+        surname: '',
+        password: '',
+      },
       valid: true,
-      name: '',
       nameRules: [
         v => !!v || 'Name is required',
         v => (v && v.length <= 20) || 'Name must be less than 20 characters',
       ],
-      email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
-      pseudo: '',
       pseudoRules: [
         v => !!v || 'Pseudo is required',
         v => (v && v.length <= 20) || 'Pseudo must be less than 20 characters',
       ],
-      surname: '',
       surnameRules: [
         v => !!v || 'Surname is required',
         v => (v && v.length <= 20) || 'Surname must be less than 20 characters',
       ],
       showPassword: false,
-      password: '',
       confirmPassword: '',
       rules: {
         required: value => !!value || 'Required.',
@@ -118,13 +121,7 @@
         if(this.validate()==false){
           console.log("error")
         }else{
-          this.axios.post("http://localhost:3000/api/users",{
-                name: this.name,
-                pseudo: this.pseudo,
-                email: this.email,
-                surname: this.surname,
-                password: this.password
-          })
+          this.axios.post("http://localhost:3000/api/users",{ user: this.user })
           .then(function (response) {
               console.log(response);
           })
@@ -136,7 +133,7 @@
     },
     computed: {
       ValidatePassword(){
-        return (this.password!=this.confirmPassword || (this.password=='' || this.confirmPassword=='')) ? true : false;
+        return (this.user.password!=this.confirmPassword || (this.user.password=='' || this.confirmPassword=='')) ? true : false;
       }
     }
   }

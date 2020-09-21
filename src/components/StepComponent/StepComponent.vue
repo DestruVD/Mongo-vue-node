@@ -4,7 +4,7 @@
             <h3 style="text-align: center;">It's very simple !</h3>
         </v-col>
         <v-col v-for="item in card" :key=item.index class="col-4">
-            <CardComponent :urlImg="item.img" :actionText="item.action" :textDesc="item.text" :activableButton="item.activableButton"/>
+            <CardComponent :cards="item"/>
         </v-col>
     </v-row>
 </template>

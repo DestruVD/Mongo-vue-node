@@ -5,11 +5,11 @@
     style="max-height: 384.938px; min-height: 384.938px;"
   >
     <v-card-text style="text-align: center;">
-      <img class="mw" :src="urlImg" alt="">
+      <img class="mw" :src="cards.img" alt="">
       <p></p>
       <div class="text--primary">
-        <h5>{{actionText}}</h5>
-        {{textDesc}}
+        <h5>{{cards.action}}</h5>
+        {{cards.text}}
       </div>
 
       
@@ -19,7 +19,7 @@
         text
         color="deep-purple accent-4"
       >
-        {{activableButton}}
+        {{cards.activableButton}}
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -29,8 +29,12 @@
 
 export default{
     name: 'Card',
-    props: ['urlImg','actionText','textDesc','activableButton'],
+    props: ['cards'],
+    data: () => ({
+        }),
     components: {
+    },
+    computed: {
     }
 }
 </script>
