@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import WelcomePage from '../components/WelcomePage';
-import Register from '../views/Register.vue'
-import Agenda from '../views/Agenda.vue'
-import ContactUs from '../views/ContactUs.vue'
-import Login from '../views/Login.vue'
+import WelcomePage from '../views/WelcomePage/WelcomePage';
+import Register from '../views/Register/Register.vue'
+import Agenda from '../views/Agenda/Agenda.vue'
+import ContactUs from '../views/ContactUs/ContactUs.vue'
+import Login from '../views/Login/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -36,8 +36,6 @@ Vue.use(VueRouter)
   }
 ]
 
-const router = new VueRouter({
-  routes
-})
+const router = new VueRouter({ routes })
 
 export default router
