@@ -138,3 +138,7 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+@import url('./RegisterForm.scss');
+</style>

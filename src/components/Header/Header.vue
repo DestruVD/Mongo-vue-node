@@ -1,15 +1,15 @@
 <template>
 <header>
-  <v-card class="overflow-hidden fixed-top">
+  <v-card class="overflow-hidden BorderRadius0 fixed-top">
     <v-app-bar
       absolute
       color="white"
       elevate-on-scroll
       scroll-target="#scrolling-techniques-7"
     >
-      <BurgerComponent/>
+      <Burger />
       <router-link to="/">
-        <v-toolbar-title><img src="../assets/logo.png" alt=""></v-toolbar-title>
+        <v-toolbar-title><img src="../../assets/logo.png" alt=""></v-toolbar-title>
       </router-link>
       
 
@@ -29,22 +29,16 @@
 </template>
 
 <script>
-import BurgerComponent from '../components/BurgerComponent';
+import Burger from './Burger/Burger';
 
 export default {
     name: 'Header',
     components: {
-        BurgerComponent
+        Burger
     }
 }
 </script>
 
-<style scoped>
-.fixed-top {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-}
+<style lang="scss" scoped>
+ @import url('./Header.scss');
 </style>

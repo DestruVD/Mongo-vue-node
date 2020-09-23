@@ -1,34 +1,32 @@
 <template>
   <v-app>
-    <HeaderComponent />
+    <Header />
     <v-main id="main" class="paddingBot">
       <router-view />
     </v-main>
-    <FooterComponent />
+    <Footer />
   </v-app>
 </template>
 
 <script>
-import FooterComponent from './components/FooterComponent';
-import HeaderComponent from './components/HeaderComponent';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
 export default {
   name: 'App',
 
   components: {
-    HeaderComponent,
-    FooterComponent
+    Header,
+    Footer
   },
 
   data: () => ({
-    //
+
   }),
 };
 </script>
 
 <style scoped>
-  .paddingBot{
-    padding-bottom: 53px !important;
-  }
+  @import url('./App.scss');
 </style>
 

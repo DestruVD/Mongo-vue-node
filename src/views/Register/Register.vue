@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import RegisterForm from '../components/RegisterForm'
+import RegisterForm from '../../components/Register/RegisterForm'
 export default {
     name: 'Register',
     components: {
@@ -18,8 +18,6 @@ export default {
 }
 </script>
 
-<style scoped>
-    .marginTop{
-        margin-top: 100px;
-    }
+<style lang="scss" scoped>
+    @import url('./Register.scss');
 </style>

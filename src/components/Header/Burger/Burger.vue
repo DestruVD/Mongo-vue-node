@@ -10,8 +10,8 @@
           </template>
         </v-tooltip>
       </template>
-      <v-list v-if="!session">
-        <v-list-item class="paddingLeftright z-index"
+      <v-list v-if="!session" class="z-index">
+        <v-list-item class="paddingLeftright"
         v-for="(item, index) in items"
         :key="index"
         >
@@ -19,8 +19,8 @@
         </v-list-item>
       </v-list>
       
-      <v-list v-if="session">
-        <v-list-item class="paddingLeftright z-index"
+      <v-list v-if="session" class="z-index">
+        <v-list-item class="paddingLeftright"
         v-for="(item, index) in itemsConnected"
         :key="index"
         >
@@ -32,24 +32,16 @@
 </template>
 
 <script>
+import {items, itemsConnected} from './BurgerData'
 export default {
     name: 'Burger',
     data: () => ({
-      items: [
-        { title: 'Agenda' },
-        { title: 'Register' },
-        { title: 'Login' },
-      ],
-      itemsConnected: [
-        { title: 'Agenda' , place: 'Agenda', disconnect: false},
-        { title: 'Profil' , place: 'Profil', disconnect: false},
-        { title: 'Logout' , place: '/', disconnect: true},
-      ],
+      items: items,
+      itemsConnected: itemsConnected 
     }),
     methods:{
       disconnect(){
-        console.log('test1')
-        this.$store.dispatch('Disconnect')
+        this.$store.commit('disconnect')
       }
     },
     computed: {
@@ -60,12 +52,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .z-index{
-    z-index: 21;
-  }
-  .paddingLeftright{
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+<style lang='scss' scoped>
+  @import url('./Burger.scss');
 </style>

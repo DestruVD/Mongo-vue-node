@@ -1,4 +1,6 @@
-export default authenticateToken(req, res, next) {
+const jwt = require('jsonwebtoken')
+const ck = require('ckey')
+const authToken = (req, res, next) => {
     const authHeader = req.headers['authorization']
     const token = authHeader.replace('Bearer ', '')
     if (token == null) {
@@ -8,4 +10,4 @@ export default authenticateToken(req, res, next) {
     res.send(jwtToken.id)
 }
 
-module.exports = authenticateToken
+module.exports = authToken

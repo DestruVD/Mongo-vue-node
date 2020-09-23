@@ -1,3 +1,4 @@
+//Déclaration
 const ck = require('ckey')
 const express = require('express');
 const User = require('../models/UserModel.js')
@@ -6,38 +7,22 @@ const port = process.env.PORT || 3000
 const mongoose = require('mongoose');
 const app = express();
 const jwt = require('jsonwebtoken')
-const CorsDesactivation = require('./CorsDesactivation')
+const corsDesactivation = require('./Modules/corsDesactivation')
+const DbConnection = require('./mongoose/modules/DbConnection')
+const authenticateToken = require('./Modules/authToken')
 
-
-const authenticateToken = function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization']
-    const token = authHeader.replace('Bearer ', '')
-    if (token == null) {
-        return res.sendStatus(401)
-    }
-    const jwtToken = jwt.verify(token, ck.ACCESS_TOKEN_SECRET)
-    res.send(jwtToken.id)
-}
+//Creation du router
+var router = express.Router();
 
 //Cors Desactivation
-app.use(CorsDesactivation)
+app.use(corsDesactivation)
+
 //Config serveur
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
-
 //Database connection
-mongoose.connect(ck.DB_CONNECTION,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
-
-
-//Creation du router
-var router = express.Router();
+DbConnection()
 
 //Route user
 router.route('/users')

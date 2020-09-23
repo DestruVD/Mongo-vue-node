@@ -1,8 +1,8 @@
 <template>
      <v-card height="0px">
-    <v-footer
-      class="footer"
-    >
+      <v-footer
+        class="footer"
+      >
       <v-card
         flat
         tile
@@ -23,13 +23,6 @@ export default {
 }
 </script>
 
-<style scoped>
-    .footer{
-        min-width: 100%;
-        padding: 0px;
-        bottom: 0 !important;
-        left: 0 !important; 
-        right: 0 !important;
-        position: absolute !important;
-    }
+<style lang="scss" scoped>
+   @import url('./Footer.scss');
 </style>

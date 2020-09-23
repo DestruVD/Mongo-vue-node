@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../../components/Login/LoginForm'
 export default {
     name: 'Register',
     components: {
@@ -19,10 +19,5 @@ export default {
 </script>
 
 <style scoped>
-    .marginTop{
-        margin-top: 100px;
-    }
-    .padding10px{
-        padding: 10px;
-    }
+    @import url('./Login.scss');
 </style>

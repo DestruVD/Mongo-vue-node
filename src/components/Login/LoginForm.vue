@@ -39,7 +39,7 @@
           :disabled="buttonEnabled"
           color="success"
           class="mr-4"
-          @click="validate(); LoginRequest();"
+          @click="validate(); TryToConnect();"
         >
           Login
         </v-btn>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import LoginRequest from './LoginRequest'
+
   export default {
     data: () => ({
       user:{
@@ -84,8 +86,8 @@
               console.log(response)
             })
       },
-      LoginRequest(){
-        this.$store.dispatch('LoginRequest',this.user)
+      TryToConnect(){
+        LoginRequest(this.user)
       }
     },
     computed: {
@@ -97,7 +99,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .text-decoNone{
-    text-decoration: none !important;
-}  
+  @import url('./Login.scss')
 </style>

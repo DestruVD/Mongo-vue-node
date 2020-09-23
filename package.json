@@ -12,6 +12,7 @@
   "main": "serveur.js",
   "dependencies": {
     "axios": "^0.20.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "ckey": "^1.0.2",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",

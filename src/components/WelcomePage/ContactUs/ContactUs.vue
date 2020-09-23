@@ -28,26 +28,5 @@ export default {
 </script>
 
 <style scoped>
-
-
-.colorWhite{
-    color: white;
-}
-.textCenter{
-    text-align: center;
-}
-@media screen and (max-width: 1200px) {
-    .parallax{
-        background-image: url("../assets/backgroundContactUs.jpg");
-        height: 30%;
-        min-width: 100%;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .marginTop{
-        margin-top: 40px !important;
-    }
-}
+    @import url('./ContactUs.scss');
 </style>

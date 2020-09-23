@@ -39,8 +39,6 @@ export default{
 }
 </script>
 
-<style scoped>
-    .mw{
-        max-width: 60%;
-    }
+<style lang="scss" scoped>
+    @import url('./Card.scss');
 </style>
